@@ -1,0 +1,16 @@
+{% extends 'cafeteria/base.html' %}
+{% block title %}Menú{% endblock %}
+{% block content %}
+<h2>Menú</h2>
+<div class="grid">
+  {% for p in products %}
+    <article class="card">
+      <h4>{{ p.name }}</h4>
+      <p>{{ p.description }}</p>
+      <p class="price">${{ p.price }}</p>
+    </article>
+  {% empty %}
+    <p>No hay productos.</p>
+  {% endfor %}
+</div>
+{% endblock %}

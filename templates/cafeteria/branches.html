@@ -1,0 +1,16 @@
+{% extends 'cafeteria/base.html' %}
+{% block title %}Sucursales{% endblock %}
+{% block content %}
+<h2>Nuestras Sucursales</h2>
+<div class="grid">
+  {% for b in branches %}
+    <article class="card">
+      <h4>{{ b.name }}</h4>
+      <p>{{ b.address }}</p>
+      <p>{{ b.phone }}</p>
+    </article>
+  {% empty %}
+    <p>No hay sucursales registradas.</p>
+  {% endfor %}
+</div>
+{% endblock %}

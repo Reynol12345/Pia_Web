@@ -1,0 +1,15 @@
+{% extends 'cafeteria/base.html' %}
+{% block title %}Eventos{% endblock %}
+{% block content %}
+<h2>Próximos Eventos</h2>
+<ul class="events">
+  {% for e in events %}
+    <li>
+      <strong>{{ e.title }}</strong> - {{ e.date|date:"d M Y H:i" }}
+      <p>{{ e.description }}</p>
+    </li>
+  {% empty %}
+    <li>No hay eventos programados.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

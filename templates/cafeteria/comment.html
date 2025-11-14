@@ -1,0 +1,12 @@
+{% extends 'cafeteria/base.html' %}
+{% block title %}Deja un comentario{% endblock %}
+{% block content %}
+<h2>Escribe un comentario</h2>
+<form method="post">
+  {% csrf_token %}
+  <label>Nombre:<br><input type="text" name="author" required></label><br>
+  <label>Email:<br><input type="email" name="email"></label><br>
+  <label>Comentario:<br><textarea name="content" rows="4" required></textarea></label><br>
+  <button type="submit">Enviar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'cafeteria/base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<section class="hero">
+  <h2>Bienvenido a nuestra Cafetería</h2>
+  <p>Disfruta de cafés, pasteles y eventos especiales.</p>
+</section>
+
+<section class="products">
+  <h3>Productos destacados</h3>
+  <div class="grid">
+    {% for p in products %}
+      <article class="card">
+        <h4>{{ p.name }}</h4>
+        <p>{{ p.description|truncatechars:80 }}</p>
+        <p class="price">${{ p.price }}</p>
+      </article>
+    {% empty %}
+      <p>No hay productos todavía.</p>
+    {% endfor %}
+  </div>
+  <p><a href="{% url 'cafeteria:menu' %}">Ver todo el menú</a></p>
+</section>
+
+<section class="comment-cta">
+  <h3>Deja un comentario</h3>
+  <p><a href="{% url 'cafeteria:comment' %}" class="btn">Escribir comentario</a></p>
+</section>
+
+{% endblock %}
