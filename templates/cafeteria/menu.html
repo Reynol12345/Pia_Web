@@ -1,16 +1,46 @@
 {% extends 'cafeteria/base.html' %}
-{% block title %}Menú{% endblock %}
+
+{% block title %}Menú Completo{% endblock %}
+
 {% block content %}
-<h2>Menú</h2>
+
+<section class="menu-header">
+  <h2>Nuestro Menú</h2>
+  <p>Café de especialidad, postres caseros y más.</p>
+</section>
+
+<section class="products-container">
 <div class="grid">
-  {% for p in products %}
-    <article class="card">
-      <h4>{{ p.name }}</h4>
-      <p>{{ p.description }}</p>
-      <p class="price">${{ p.price }}</p>
-    </article>
-  {% empty %}
-    <p>No hay productos.</p>
-  {% endfor %}
-</div>
+    {% for p in products %}
+      <article class="card product-card">
+        
+        <div class="card-image-container" style="overflow: hidden; position: relative;">
+            {% if p.image_url %}
+                <img src="{{ p.image_url }}" alt="{{ p.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+            {% else %}
+                <i class="fas fa-mug-hot"></i>
+            {% endif %}
+        </div>
+        
+        <div class="card-body">
+          <div class="card-top">
+            <h4>{{ p.name }}</h4>
+            <span class="price-tag">${{ p.price }}</span>
+          </div>
+          
+          <p class="description">{{ p.description }}</p>
+          
+          <form action="#" method="POST" class="add-to-cart-form">
+             <button type="button" class="btn btn-primary full-width">AGREGAR AL PEDIDO</button>
+          </form>
+        </div>
+      </article>
+    {% empty %}
+      <div class="alert">
+        <p>Lo sentimos, el menú se está actualizando.</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
 {% endblock %}

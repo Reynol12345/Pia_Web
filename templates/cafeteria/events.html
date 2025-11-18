@@ -1,15 +1,41 @@
 {% extends 'cafeteria/base.html' %}
-{% block title %}Eventos{% endblock %}
+
+{% block title %}Eventos y Talleres{% endblock %}
+
 {% block content %}
-<h2>Próximos Eventos</h2>
-<ul class="events">
-  {% for e in events %}
-    <li>
-      <strong>{{ e.title }}</strong> - {{ e.date|date:"d M Y H:i" }}
-      <p>{{ e.description }}</p>
-    </li>
-  {% empty %}
-    <li>No hay eventos programados.</li>
-  {% endfor %}
-</ul>
+
+<section class="events-header center-text">
+  <h2>Agenda Cafetera</h2>
+  <p>Música en vivo, catas de café y talleres de estudio.</p>
+</section>
+
+<section class="events-container">
+  <div class="grid">
+    {% for e in events %}
+      <article class="card event-card">
+        <div class="event-date-badge">
+            <span class="day">{{ e.date|date:"d" }}</span>
+            <span class="month">{{ e.date|date:"M"|upper }}</span>
+        </div>
+        
+        <div class="card-body">
+          <h3>{{ e.title }}</h3>
+          
+          <div class="event-meta">
+            <p><i class="far fa-clock"></i> {{ e.date|date:"H:i" }} hrs</p>
+          </div>
+          
+          <p class="description">{{ e.description }}</p>
+          
+          <button class="btn btn-sm btn-outline">Reservar lugar</button>
+        </div>
+      </article>
+    {% empty %}
+      <div class="alert">
+        <p><i class="far fa-calendar-times"></i> No hay eventos próximos. ¡Vuelve pronto!</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
 {% endblock %}

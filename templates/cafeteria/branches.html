@@ -1,16 +1,48 @@
 {% extends 'cafeteria/base.html' %}
-{% block title %}Sucursales{% endblock %}
+
+{% block title %}Sucursales - Cafetería Universidad{% endblock %}
+
 {% block content %}
-<h2>Nuestras Sucursales</h2>
-<div class="grid">
-  {% for b in branches %}
-    <article class="card">
-      <h4>{{ b.name }}</h4>
-      <p>{{ b.address }}</p>
-      <p>{{ b.phone }}</p>
-    </article>
-  {% empty %}
-    <p>No hay sucursales registradas.</p>
-  {% endfor %}
-</div>
+
+<section class="branches-header center-text">
+  <h2>Encuéntranos</h2>
+  <p>Estamos ubicados estratégicamente cerca de tu facultad.</p>
+</section>
+
+<section class="branches-content">
+  <div class="grid">
+    {% for b in branches %}
+      <article class="card branch-card">
+        <div class="branch-icon-header">
+            <i class="fas fa-store-alt"></i>
+        </div>
+        
+        <div class="card-body">
+          <h3>{{ b.name }}</h3>
+          
+          <div class="branch-details">
+            <p class="info-row">
+                <i class="fas fa-map-marker-alt icon-red"></i> 
+                <span>{{ b.address }}</span>
+            </p>
+            
+            <p class="info-row">
+                <i class="fas fa-phone icon-green"></i> 
+                <a href="tel:{{ b.phone }}">{{ b.phone }}</a>
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <button class="btn btn-outline full-width">Ver en Google Maps</button>
+          </div>
+        </div>
+      </article>
+    {% empty %}
+      <div class="alert">
+        <p><i class="fas fa-tools"></i> Estamos trabajando en nuevas aperturas.</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
 {% endblock %}

@@ -48,3 +48,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.author}: {self.content[:40]}"
+
+class Car(models.Model):
+    make = models.CharField(max_length=100, verbose_name="Marca")
+    model = models.CharField(max_length=100, verbose_name="Modelo")
+    plate = models.CharField(max_length=20, verbose_name="Placas")
+    image_url = models.URLField(blank=True, verbose_name="Foto del auto")
+
+    def __str__(self):
+        return f"{self.make} {self.model} - {self.plate}"

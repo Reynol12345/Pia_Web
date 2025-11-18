@@ -1,12 +1,35 @@
 {% extends 'cafeteria/base.html' %}
-{% block title %}Deja un comentario{% endblock %}
+
+{% block title %}Contacto y Comentarios{% endblock %}
+
 {% block content %}
-<h2>Escribe un comentario</h2>
-<form method="post">
-  {% csrf_token %}
-  <label>Nombre:<br><input type="text" name="author" required></label><br>
-  <label>Email:<br><input type="email" name="email"></label><br>
-  <label>Comentario:<br><textarea name="content" rows="4" required></textarea></label><br>
-  <button type="submit">Enviar</button>
-</form>
+
+<section class="comment-section">
+  <div class="form-container">
+    <h2>Danos tu opinión</h2>
+    <p>¿Qué te pareció el servicio? ¡Te leemos!</p>
+
+    <form method="POST" class="styled-form">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="author">Tu Nombre:</label>
+        <input type="text" name="author" id="author" required placeholder="Ej. Juan Pérez">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo Electrónico (Opcional):</label>
+        <input type="email" name="email" id="email" placeholder="contacto@ejemplo.com">
+      </div>
+
+      <div class="form-group">
+        <label for="content">Comentario:</label>
+        <textarea name="content" id="content" rows="5" required placeholder="Escribe aquí tu mensaje..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+    </form>
+  </div>
+</section>
+
 {% endblock %}

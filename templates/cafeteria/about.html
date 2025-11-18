@@ -1,8 +1,47 @@
 {% extends 'cafeteria/base.html' %}
-{% block title %}Acerca{% endblock %}
+{% load static %} {% block title %}Quiénes Somos - Cafetería Universidad{% endblock %}
+
 {% block content %}
-<h2>Acerca de la Cafetería</h2>
-<p>Somos una cafetería creada por estudiantes para la comunidad universitaria.</p>
-<p>Integrantes del proyecto: Grupo de Desarrollo Web.</p>
-<img src="/static/images/coffee_shop.jpg" alt="Cafetería" style="max-width:400px;">
+
+<div class="about-page">
+
+    <section class="about-hero">
+        <div class="about-content">
+            <h2>Nuestra Historia</h2>
+            <p class="lead">Más que café, somos combustible para tus ideas.</p>
+            <p>
+                Esta cafetería nació como una iniciativa de estudiantes para estudiantes. 
+                Entendemos las largas noches de estudio y la necesidad de un buen descanso 
+                entre clases. Nuestro objetivo es ofrecer productos de calidad, 
+                precios accesibles y un espacio cómodo para la comunidad universitaria.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="https://cdn.sortiraparis.com/images/80/103100/940351-le-bon-moment-cafe-coffeeshop-convivial-dans-le-quartier-latin-image00009.jpg" alt="Interior de la cafetería">
+        </div>
+    </section>
+
+    <section class="mission-values">
+        <div class="grid-3">
+            <div class="value-card">
+                <h3>📚 Apoyo Estudiantil</h3>
+                <p>Espacios pensados para que puedas estudiar o relajarte.</p>
+            </div>
+            <div class="value-card">
+                <h3>☕ Calidad Local</h3>
+                <p>Usamos granos de productores locales para el mejor sabor.</p>
+            </div>
+            <div class="value-card">
+                <h3>🤝 Comunidad</h3>
+                <p>Un punto de encuentro para conectar con compañeros.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h3>Equipo de Desarrollo</h3>
+        <p>Este sitio web fue diseñado y programado por el <strong>Grupo de Desarrollo Web</strong>.</p>
+
+</div>
+
 {% endblock %}

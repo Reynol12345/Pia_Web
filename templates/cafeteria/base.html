@@ -1,27 +1,56 @@
+{% load static %}
 <!doctype html>
 <html lang="es">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Cafetería - {% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
+  
   <body>
-    <header>
-      <h1 class="brand">Cafetería Universidad</h1>
-      <nav>
-        <a href="{% url 'cafeteria:home' %}">Inicio</a>
-        <a href="{% url 'cafeteria:menu' %}">Menú</a>
-        <a href="{% url 'cafeteria:events' %}">Eventos</a>
-        <a href="{% url 'cafeteria:branches' %}">Sucursales</a>
-        <a href="{% url 'cafeteria:about' %}">Acerca</a>
-      </nav>
+    
+    <header class="main-header">
+      <div class="container header-content">
+        <a href="{% url 'cafeteria:home' %}" class="brand">
+           <i class="fas fa-coffee"></i> Cafetería U
+        </a>
+        
+        <nav class="main-nav">
+          <a href="{% url 'cafeteria:home' %}">Inicio</a>
+          <a href="{% url 'cafeteria:menu' %}">Menú</a>
+          <a href="{% url 'cafeteria:events' %}">Eventos</a>
+          <a href="{% url 'cafeteria:branches' %}">Sucursales</a>
+          <a href="{% url 'cafeteria:about' %}">Acerca</a>
+          <a href="{% url 'cafeteria:comment' %}" class="btn-nav">Opiniones</a>
+        </nav>
+      </div>
     </header>
+
     <main>
       {% block content %}{% endblock %}
     </main>
-    <footer>
-      <p>&copy; 2025 Cafetería Universidad</p>
+
+    <footer class="main-footer">
+      <div class="container">
+        <p>&copy; 2025 Cafetería Universidad - Hecho con <i class="fas fa-heart"></i> y Django.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
     </footer>
+
   </body>
 </html>
